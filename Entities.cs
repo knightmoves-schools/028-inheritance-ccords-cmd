@@ -1,40 +1,60 @@
 ﻿namespace knightmoves;
-public class Company{
+
+public class Ageable
+{
+    private int Year;
+
+    public Ageable(int year)
+    {
+        Year = year;
+    }
+
+    public int Age()
+    {
+        int currentYear = 2026;        
+        return currentYear - Year;
+    }
+}
+
+public class Company : Ageable
+{
     private string Name;
     private string Id;
-    private int Year;
     private decimal TaxRate;
 
-    public Company(string name, string taxId, int yearEstablished, decimal taxRate){
+    public Company(string name, string taxId, int yearEstablished, decimal taxRate) 
+        : base(yearEstablished)      
+    {
         Name = name;
         Id = taxId;
-        Year = yearEstablished;
         TaxRate = taxRate;
     }
 }
 
-public class Person{
+public class Person : Ageable
+{
     private string Name;
     private string Id;
-    private int Year;
     private decimal TaxRate;
 
-    public Person(string name, string ssn, int birthYear, decimal taxRate){
+    public Person(string name, string ssn, int birthYear, decimal taxRate) 
+        : base(birthYear)             
+    {
         Name = name;
         Id = ssn;
-        Year = birthYear;
         TaxRate = taxRate;
     }
 }
 
-public class Car{
+public class Car : Ageable
+{
     private string Name;
     private string Id;
-    private int Year;
 
-    public Car(string model, string vin, int year){
+    public Car(string model, string vin, int year) 
+        : base(year)                  
+    {
         Name = model;
         Id = vin;
-        Year = year;
     }
 }
